@@ -1,5 +1,5 @@
-import { expect, it } from "vitest";
-import { stringLength } from "./stringLength";
+import { describe, expect, it } from "vitest";
+import { stringLength, validateArrayNonEmpty } from "./stringLength";
 
 it("should return correct length for non empty string", () => {
   // Arrange
@@ -21,4 +21,12 @@ it("should throws error fox non-string input", () => {
   expect(() => stringLength(null)).toThrow();
   expect(() => stringLength(undefined)).toThrow();
   expect(stringLength(123)).toBeUndefined();
+});
+
+describe("validateArrayNonEmpty()", () => {
+  it("should validate a non-empty array", () => {
+    const arr = [2, 5];
+    const resultFn = () => validateArrayNonEmpty(arr);
+    expect(resultFn).not.toThrow();
+  });
 });
