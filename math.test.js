@@ -1,11 +1,11 @@
 import { expect, it } from "vitest";
 import { add } from "./math";
 
-// it("should return the correct sum if an array of number is provided", () => {
-//   const result = add([1, 2, 3]);
+it("should return the correct sum if an array of number is provided", () => {
+  const result = add([1, 2, 3]);
 
-//   expect(result).toBe(6);
-// });
+  expect(result).toBe(6);
+});
 
 // AAA pattern
 it("should return the correct sum if an array of number is provided", () => {
@@ -41,4 +41,29 @@ it("should provide correct sum if an array numeric string is provided", () => {
 
   // Assertion
   expect(result).toBe(expectedResult);
+});
+
+// Test for Error
+it("should throw an error if no argument  is provided", () => {
+  try {
+    const result = add();
+  } catch (error) {
+    expect(error).toBeDefined();
+  }
+});
+
+// Another way of Test for Error
+it("should throw an error if no argument  is provided", () => {
+  const resultFn = () => {
+    add();
+  };
+  expect(resultFn).toThrow();
+});
+
+// Error for if multiple argument is provided
+it("should thorw an error if multiple argument is provided", () => {
+  const resultFn = () => {
+    add(1, 2, 3);
+  };
+  expect(resultFn).toThrow(/is not iterable/i);
 });
