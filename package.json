@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitest": "^1.2.2"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
   }
 }
